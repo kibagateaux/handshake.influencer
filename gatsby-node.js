@@ -5,14 +5,14 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const influencerPage = path.resolve(`./src/templates/Influencer.js`)
   const tagPage = path.resolve(`./src/templates/tag-page.js`)
   
   return graphql(
     `
       {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: { fields: [frontmatter___dateAdded], order: DESC }
           limit: 1000
         ) {
           edges {
@@ -51,7 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       createPage({
         path: post.node.fields.slug,
-        component: blogPost,
+        component: influencerPage,
         context: {
           slug: post.node.fields.slug,
           previous,

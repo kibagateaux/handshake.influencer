@@ -3,24 +3,18 @@ import { graphql, StaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import Bio from "../components/bio"
-import PostCard from "../components/postCard"
+import { Card } from "../components/Card"
 
 import "../style/normalize.css"
 import "../style/all.scss"
-//TODO: switch to staticQuery, get rid of comments, remove unnecessary components, export as draft template
-const BlogIndex = ({ data }, location) => {
+
+const Home = ({ data, location }) => {
+  console.log('homepage data', data, location);
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
-  let postCounter = 0
 
   return (
     <Layout title={siteTitle}>
-      <SEO
-        title="Blog"
-        keywords={[`devlog`, `blog`, `gatsby`, `javascript`, `react`]}
-      />
-      {/* <Bio /> */}
       {data.site.siteMetadata.description && (
         <header className="page-head">
           <h2 className="page-head-title">
@@ -29,12 +23,11 @@ const BlogIndex = ({ data }, location) => {
         </header>
       )}
       <div className="post-feed">
-        {posts.map(({ node }) => {
-          postCounter++
+        {posts.map(({ node }, i) => {
           return (
-            <PostCard
+            <Card
               key={node.fields.slug}
-              count={postCounter}
+              largeDisplay={(i + 1) % 3 === 0 ? true : false}
               node={node}
               postClass={`post`}
             />
@@ -45,7 +38,7 @@ const BlogIndex = ({ data }, location) => {
   )
 }
 
-const indexQuery = graphql`
+export const indexQuery = graphql`
   query {
     site {
       siteMetadata {
@@ -53,7 +46,7 @@ const indexQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___dateAdded], order: DESC }) {
       edges {
         node {
           excerpt
@@ -61,7 +54,7 @@ const indexQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM D, YYYY")
+            dateAdded
             title
             description
             tags
@@ -79,11 +72,4 @@ const indexQuery = graphql`
   }
 `
 
-export default props => (
-  <StaticQuery
-    query={indexQuery}
-    render={data => (
-      <BlogIndex location={props.location} props data={data} {...props} />
-    )}
-  />
-)
+export default Home

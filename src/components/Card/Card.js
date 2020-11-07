@@ -1,27 +1,32 @@
 import React, { Component } from "react";
 import { Link } from "gatsby"
-import Tags from "./tag"
+import Tags from "./Tag"
 
-export default props => (
-  <article
-    className={`post-card ${props.count % 3 === 0 && `post-card-large`} ${
-      props.postClass
-    } ${props.node.frontmatter.thumbnail ? `with-image` : `no-image`}`}
-    style={
-      props.node.frontmatter.thumbnail && {
-        backgroundImage: `url(${
-          props.node.frontmatter.thumbnail.childImageSharp.fluid.src
-        })`,
+export default props => {
+  return (
+    <article
+      className={`
+        post-card
+        ${props.largeDisplay && `post-card-large`}
+        ${props.postClass}
+        ${props.node.frontmatter.thumbnail ? `with-image` : `no-image`}
+      `}
+      style={
+        props.node.frontmatter.thumbnail && {
+          backgroundImage: `url(${
+            props.node.frontmatter.thumbnail.childImageSharp.fluid.src
+          })`,
+        }
       }
+    >
+        {
+          props.node.frontmatter.thumbnail
+            ?(<ContentWithImage props={props}/>)
+            :(<ContentNoImage props={props}/>)
+        }
+    </article>
+  )
     }
-  >
-      {
-        props.node.frontmatter.thumbnail
-          ?(<ContentWithImage props={props}/>)
-          :(<ContentNoImage props={props}/>)
-      }
-  </article>
-)
 
 class ContentNoImage extends Component {
   render() {
@@ -38,9 +43,9 @@ class ContentNoImage extends Component {
           </h2>
         </Link>
         </div>
-        <div className="post-card-date">
-        {props.node.frontmatter.date}
-        </div>
+        {/* <div className="post-card-date">
+          {props.node.frontmatter.dateAdded}
+        </div> */}
         <div className="post-card-body">
         {props.node.frontmatter.description || props.node.excerpt}
         </div>

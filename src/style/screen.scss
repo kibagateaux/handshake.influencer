@@ -53,9 +53,9 @@ body {
 /* ---------------------------------------------------------- */
 
 .site-wrapper {
-  padding: 3vw;
-  min-height: 100vh;
+  // min-height: 100vh;
 }
+
 @media (max-width: 850px) {
   .site-wrapper {
     padding: 6vw;
@@ -143,9 +143,9 @@ body {
 /* ---------------------------------------------------------- */
 
 .site-head {
+  margin: 3vw;
   position: relative;
   z-index: 300;
-  margin-top: -10px;
   font-size: 1.35rem;
 }
 
@@ -239,6 +239,12 @@ body {
   align-items: center;
 }
 
+.social-links-container {
+  @media (min-width: 850px) {
+    visibility: hidden;
+  }
+}
+
 .social-links {
   flex-shrink: 0;
   display: flex;
@@ -322,6 +328,8 @@ body {
   .site-head-right a {
     padding: 5px 0;
     margin: 1px 0;
+  }
+  .social-links-container a {
     font-size: 2rem;
   }
   .nav {
@@ -332,7 +340,7 @@ body {
     margin: 3vw 0 0 0;
   }
   .site-head-left {
-    order: 2;
+    order: 4; // move after main nav links
     margin: 0;
     width: 100%;
   }
@@ -341,8 +349,6 @@ body {
     position: static;
     z-index: auto;
     display: flex;
-    justify-content: left;
-    width: 186px;
   }
   .site-head-right {
     order: 3;
@@ -391,6 +397,7 @@ body {
     }
   }
   .site-head-open .site-head-right a {
+    font-weight: 600;
     opacity: 0.8;
   }
   .site-head-open .site-foot {
@@ -525,10 +532,6 @@ body {
   color: $color-body-font;
 }
 
-.post-card.no-image:hover .post-card-title {
-  text-decoration: underline;
-}
-
 @media (max-width: 1200px) {
   .post-card.no-image .post-card-title {
     font-size: 3.4rem;
@@ -587,6 +590,10 @@ body {
   @include light-mode {
     color: $color-body-font-light;
   }
+}
+
+.post-content-hns-domain {
+  margin-top: 1rem;
 }
 
 .post-content-excerpt {
@@ -734,6 +741,11 @@ body {
     background: $color-body-font-light;
     box-shadow: $color-body-font-light 0 0 5px;
   }
+}
+
+.post-content-footer {
+  display: flex;
+  justify-content: center;
 }
 
 .footnotes-sep {

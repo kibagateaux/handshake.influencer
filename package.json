@@ -1,19 +1,16 @@
 {
-  "name": "gatsby-london-after-midnight",
+  "name": "handshake-influencer",
   "private": true,
-  "description": "A custom, image-centric theme for Gatsby",
+  "description": "Site for  aggregating the Handshake ecosystem",
   "version": "1.0.2",
-  "author": "Vaporwavy <i@ttv8.me> (https://vaporwavy.io)",
+  "author": "KibaGateaux (http://me.kiba_gateaux/)",
   "bugs": {
     "url": "https://github.com/vaporwavy/gatsby-london-after-midnight/issues"
   },
   "dependencies": {
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.41",
-    "gatsby-plugin-feed": "^2.2.0",
-    "gatsby-plugin-google-analytics": "^2.0.19",
     "gatsby-plugin-manifest": "^2.1.1",
-    "gatsby-plugin-netlify": "^2.0.17",
     "gatsby-plugin-offline": "^2.1.0",
     "gatsby-plugin-postcss": "^2.0.7",
     "gatsby-plugin-purgecss": "^3.1.1",
@@ -28,6 +25,7 @@
     "gatsby-source-filesystem": "^2.0.33",
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.19",
+    "gatsby-transformer-yaml": "^2.4.15",
     "node-sass": "^4.13.0",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
@@ -36,8 +34,7 @@
     "typeface-alegreya": "^0.0.69",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.54",
-    "typeface-nunito": "^0.0.72",
-    "url-join": "^4.0.0"
+    "typeface-nunito": "^0.0.72"
   },
   "devDependencies": {
     "autoprefixer": "^9.5.1",
@@ -48,13 +45,10 @@
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "http://handshake.influencer/",
   "keywords": [
-    "gatsby",
-    "ghost",
-    "gallery",
-    "blog",
-    "starter"
+    "handshake",
+    "gatsby"
   ],
   "license": "MIT",
   "main": "n/a",

@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PostCard from "../components/postCard"
+import Card from "../components/Card"
 
 class TagPageTemplate extends React.Component {
   render() {
@@ -25,7 +25,7 @@ class TagPageTemplate extends React.Component {
       <div className="post-feed">
         {posts.map(({ node }) => {
           return (
-            <PostCard
+            <Card
               key={node.fields.slug}
               node={node}
               postClass={`post`}
@@ -48,7 +48,12 @@ export const pageQuery = graphql`
         author
       }
     }
-    allMarkdownRemark(filter: { frontmatter: { tags: { in: [$tag] } } }, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(filter: {
+      frontmatter: { tags: { in: [$tag] } } },
+      sort: {
+        fields: [frontmatter___dateAdded],
+        order: DESC
+    }) {
       totalCount
       edges {
         node {
@@ -57,7 +62,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            dateAdded
             title
             description
             tags
