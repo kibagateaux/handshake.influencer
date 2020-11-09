@@ -58,7 +58,7 @@ const InfluencerTemplate = (props) => {
         />
 
         <footer className="post-content-footer">
-          <a href={`http://${dns}`} target="_blank" rel="noopener noreferrer">
+          <a href={`http://${hns || dns}`} target="_blank" rel="noopener noreferrer">
             <button>
               Visit {title}
             </button>
@@ -72,7 +72,7 @@ const InfluencerTemplate = (props) => {
 export default InfluencerTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query InfluencerBySlug($slug: String!) {
     site {
       siteMetadata {
         title

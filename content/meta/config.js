@@ -1,7 +1,7 @@
 module.exports = {
   siteTitle: "Handshake.Influencer/", // <title>
   shortSiteTitle: "Handshake.Influencer/", // <title> ending for posts and pages
-  siteDescription: "The home of all things on the new Internet hosted on Handshake network",
+  siteDescription: "The home of all things making moves on the new Internet by Handshake",
   siteUrl: "http://handshake.influencer/",
   // pathPrefix: "",
   siteImage: "siteImage.jpg",
@@ -12,8 +12,8 @@ module.exports = {
   orgTwitterAccount: "kibagateaux",
 
   /* info */
-  headerTitle: "존나 예뻐",
-  headerSubTitle: "",
+  // headerTitle: "Handshake.influencer/",
+  // headerSubTitle: "",
 
   /* manifest.json */
   manifestName: "Handshake.Influencer/",

@@ -1,5 +1,6 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql } from "gatsby"
+import _ from 'lodash'
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,20 +9,17 @@ import { Card } from "../components/Card"
 import "../style/normalize.css"
 import "../style/all.scss"
 
-const Home = ({ data, location }) => {
-  console.log('homepage data', data, location);
-  const siteTitle = data.site.siteMetadata.title
+const CategoryTemplate = (props) => {
+  const {
+    data,
+    pageContext: { category },
+  } = props
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout title={siteTitle}>
-      {data.site.siteMetadata.description && (
-        <header className="page-head">
-          <h1 className="page-head-title">
-            {data.site.siteMetadata.description}
-          </h1>
-        </header>
-      )}
+    <Layout>
+      <SEO /> {/* TODO SEOING */}
+      <center><h1> {_.upperFirst(category)} Influencing Handshake</h1></center>
       <div className="post-feed">
         {posts.map(({ node }, i) => {
           return (
@@ -38,15 +36,15 @@ const Home = ({ data, location }) => {
   )
 }
 
-export const indexQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
+export const categoryQuery = graphql`
+  query PostsByCategory($category: String!) {
+    allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: $category } } }
+      sort: {
+        fields: [frontmatter___dateAdded], order: DESC
       }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___dateAdded], order: DESC }) {
+      limit: 100
+    ) {
       edges {
         node {
           excerpt
@@ -58,7 +56,6 @@ export const indexQuery = graphql`
             title
             description
             tags
-            category
             thumbnail {
               childImageSharp {
                 fluid(maxWidth: 1360) {
@@ -73,4 +70,4 @@ export const indexQuery = graphql`
   }
 `
 
-export default Home
+export default CategoryTemplate

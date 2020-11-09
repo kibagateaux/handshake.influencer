@@ -1,9 +1,17 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { Menu } from "./Menu"
 
 const Layout = props => {
-  const { title, children } = props
+  const { children } = props
+  const { site: { siteMetadata: { title } } } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }`)
   return (
     <div className="site-wrapper">
       <Menu title={title} />

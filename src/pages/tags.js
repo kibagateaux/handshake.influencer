@@ -24,11 +24,11 @@ const TagIndex = ({ data }) => {
       <div className="tag-container">
         {tags.map( tag => {
           return(
-              <Link
+            <Link
               key={tag}
               style={{ textDecoration: "none" }}
               to={`/tags/${_.kebabCase(tag)}`}
-              >
+            >
               <div className="tag-item">#{tag}</div>
               </Link>
             )
@@ -38,7 +38,7 @@ const TagIndex = ({ data }) => {
   )
 }
 
-const indexQuery = graphql`
+export const indexQuery = graphql`
   query {
     site {
       siteMetadata {

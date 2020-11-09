@@ -19,35 +19,36 @@ export default (props) => {
   return (
     <header className={`site-head ${toggleNav ? 'site-head-open' : ''}`}>
       <div id="menu" className="site-head-container">
-        <a
-          className="nav-burger"
-          href={`#menu`}
-          onClick={() => setToggleNav(!toggleNav)}
-        >
-          <div
-            className="hamburger hamburger--collapse"
-            aria-label="Menu"
-            role="button"
-            aria-controls="navigation"
+        <div className="site-head-logos-container">
+          <a
+            className="nav-burger"
+            href={`#menu`}
+            onClick={() => setToggleNav(!toggleNav)}
           >
-            <div className="hamburger-box">
-              <div className="hamburger-inner" />
-            </div> <div className="hamburger-text-menu-text hidden">Menu</div>
-          </div>
-        </a>
+            <div
+              className="hamburger hamburger--collapse"
+              aria-label="Menu"
+              role="button"
+              aria-controls="navigation"
+            >
+              <div className="hamburger-box">
+                <div className="hamburger-inner" />
+              </div> <div className="hamburger-text-menu-text hidden">Menu</div>
+            </div>
+          </a>
+          <Link className="site-head-logo" to={`/`}>
+            {title}
+          </Link>
+        </div>
         <div className="site-head-left social-links-container">
           <div className="social-links">
             {socialItems.map(item =>
               <SocialMenuLink key={item.label} {...item} />)}  
           </div>
         </div>
-        <div className="site-head-center">
-          <Link className="site-head-logo" to={`/`}>
-            {title}
-          </Link>
-        </div>
+
         <nav id="nav-menu" className="site-head-right">
-          <ul className="nav" role="menu">
+          <ul className="nav">
             {menuItems.map(item =>
               <MenuLink key={item.label} {...item} />)}
           </ul>
@@ -61,7 +62,6 @@ const MenuLink = ({ to, label }) => (
   <li
     key={label}
     className={`nav-${label}`}
-    role="menuitem"
   >
     <Link to={to}>{label}</Link>
   </li>

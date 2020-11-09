@@ -1,24 +1,21 @@
 import React, { Component } from "react";
-import _ from "lodash";
 import { Link } from "gatsby";
 
 class Tags extends Component {
   render() {
-    const { tags } = this.props;
+    const { tags, category } = this.props;
     return (
       <div className="post-card-tags">
-        {tags &&
-          tags.map(tag => (
-            <span key={tag}>
-            <Link className="post-card-tag-link"
+        {tags && tags.map(tag => (
+          <Link
             key={tag}
-            // style={{ textDecoration: "none" }}
-            to={`/tags/${_.kebabCase(tag)}`}
-            >
+            className="post-card-tag-link"
+            style={{ textDecoration: "none" }}
+            to={category}
+          >
             #{tag}
-            </Link>
-            {" "}</span>
-          ))}
+          </Link>
+        ))}
       </div>
     );
   }

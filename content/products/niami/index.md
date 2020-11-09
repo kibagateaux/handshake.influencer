@@ -4,7 +4,8 @@ hns: niami/
 dns: niami.io
 twitter: 0x.stefan
 thumbnail: ./niami_pattern.png
-shortDescription: Handshake domain rating system since 2020.
+description: Handshake domain rating system since 2020.
+category: products
 tags: [Domain Services]
 dateAdded: 2020-11-2
 ---
