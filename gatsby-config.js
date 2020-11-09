@@ -11,6 +11,7 @@ module.exports = {
     },
   },
   plugins: [
+    // Content sources
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -28,17 +29,11 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/resolvers`,
-        name: `resolvers`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         path: `${__dirname}/content/funds`,
         name: `funds`,
       },
     },
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {

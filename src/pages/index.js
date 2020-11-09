@@ -1,17 +1,16 @@
-import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Card } from "../components/Card"
+import Layout from "../components/layout";
+import SEO from "../components/Seo";
+import { Card } from "../components/Card";
 
-import "../style/normalize.css"
-import "../style/all.scss"
+import "../style/normalize.css";
+import "../style/all.scss";
 
 const Home = ({ data, location }) => {
-  console.log('homepage data', data, location);
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const siteTitle = data.site.siteMetadata.title;
+  const posts = data.allMarkdownRemark.edges;
 
   return (
     <Layout title={siteTitle}>
@@ -31,12 +30,12 @@ const Home = ({ data, location }) => {
               node={node}
               postClass={`post`}
             />
-          )
+          );
         })}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export const indexQuery = graphql`
   query {
@@ -46,7 +45,9 @@ export const indexQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___dateAdded], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___dateAdded], order: DESC }
+    ) {
       edges {
         node {
           excerpt
@@ -71,6 +72,6 @@ export const indexQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default Home
+export default Home;

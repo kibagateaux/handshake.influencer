@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import config from "../../../content/meta/config";
 
 const Seo = props => {
-  const { data, facebook } = props;
+  const { data } = props;
   const Title = (data || {}).title;
   const Description = (data || {}).description;
   const Cover = (data || {}).cover; // TODO make puts src.jpg url not object

@@ -1,17 +1,22 @@
-import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { Menu } from "./Menu"
+import React from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import Menu from "./Menu";
 
 const Layout = props => {
-  const { children } = props
-  const { site: { siteMetadata: { title } } } = useStaticQuery(graphql`
+  const { children } = props;
+  const {
+    site: {
+      siteMetadata: { title }
+    }
+  } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
           title
         }
       }
-    }`)
+    }
+  `);
   return (
     <div className="site-wrapper">
       <Menu title={title} />
@@ -24,7 +29,7 @@ const Layout = props => {
         &copy; {new Date().getFullYear()} <Link to={`/`}>{title}</Link>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

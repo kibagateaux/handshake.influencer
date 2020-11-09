@@ -1,11 +1,22 @@
 {
   "name": "handshake-influencer",
+  
   "private": true,
-  "description": "Site for  aggregating the Handshake ecosystem",
+  "description": "Site for aggregating the Handshake ecosystem",
   "version": "1.0.2",
   "author": "KibaGateaux (http://me.kiba_gateaux/)",
-  "bugs": {
-    "url": "https://github.com/vaporwavy/gatsby-london-after-midnight/issues"
+  "homepage": "http://handshake.influencer/",
+  "keywords": [
+    "handshake",
+    "gatsby"
+  ],
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
     "gatsby": "^2.4.2",
@@ -26,6 +37,7 @@
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.19",
     "gatsby-transformer-yaml": "^2.4.15",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.13.0",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
@@ -45,25 +57,8 @@
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0"
   },
-  "homepage": "http://handshake.influencer/",
-  "keywords": [
-    "handshake",
-    "gatsby"
-  ],
   "license": "MIT",
   "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vaporwavy/gatsby-london-after-midnight.git"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
-  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
