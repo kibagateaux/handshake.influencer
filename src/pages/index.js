@@ -15,11 +15,11 @@ const Home = ({ data, location }) => {
   return (
     <Layout title={siteTitle}>
       {data.site.siteMetadata.description && (
-        <header className="page-head">
+        <div className="container page-head">
           <h1 className="page-head-title">
             {data.site.siteMetadata.description}
           </h1>
-        </header>
+        </div>
       )}
       <div className="post-feed">
         {posts.map(({ node }, i) => {

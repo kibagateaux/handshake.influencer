@@ -17,7 +17,7 @@ export default (props) => {
   ]
 
   return (
-    <header className={`site-head ${toggleNav ? 'site-head-open' : ''}`}>
+    <header className={`container site-head ${toggleNav ? 'site-head-open' : ''}`}>
       <div id="menu" className="site-head-container">
         <div className="site-head-logos-container">
           <a

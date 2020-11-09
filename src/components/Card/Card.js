@@ -47,7 +47,7 @@ class ContentNoImage extends Component {
         }
       }
     } = this.props;
-    const influencerPagePath = category + slug
+    const influencerPagePath = `/${category+ slug}`
     return (
       <div className="post-card-content">
         <Tags tags={tags} category={category} />

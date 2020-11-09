@@ -54,6 +54,7 @@ export const categoryQuery = graphql`
           frontmatter {
             dateAdded
             title
+            category
             description
             tags
             thumbnail {
