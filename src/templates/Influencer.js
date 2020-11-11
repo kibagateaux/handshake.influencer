@@ -19,19 +19,29 @@ const InfluencerTemplate = props => {
       }
     }
   } = props;
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={title} description={description || excerpt} />
-      <article className={`post-content ${thumbnail || `no-image`}`}>
+      <article className={`post-content`}>
+        {thumbnail && (
+          <div className="post-content-header-image">
+            <Img
+              // className="kg-image"
+              fixed={thumbnail.childImageSharp.fixed}
+              alt={title}
+            />
+          </div>
+        )} 
         <header className="post-content-header">
           <h1 className="post-content-title">{title}</h1>
-          {hns && <h5 className="post-content-hns-domain"> HNS: {hns} </h5>}
+          {hns && (
+            <h5 className="post-content-hns-domain">
+              <a href={`http://${hns}`} target="_blank"> {hns} </a>
+            </h5>)}
+          {description && <h2 className="post-content-excerpt">{description}</h2>}
         </header>
 
-        {description && <p className="post-content-excerpt">{description}</p>}
-
-        {thumbnail && (
+        {/* {thumbnail && (
           <div className="post-content-image">
             <Img
               className="kg-image"
@@ -39,7 +49,7 @@ const InfluencerTemplate = props => {
               alt={title}
             />
           </div>
-        )}
+        )} */}
 
         <div
           className="post-content-body"
@@ -82,8 +92,8 @@ export const pageQuery = graphql`
         hns
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 1360) {
-              ...GatsbyImageSharpFluid
+            fixed(width: 200) {
+              ...GatsbyImageSharpFixed
             }
           }
         }

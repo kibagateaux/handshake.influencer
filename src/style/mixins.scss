@@ -2,3 +2,8 @@
 @mixin light-mode {
   @media (prefers-color-scheme: light) { @content; }
 }
+
+@mixin container {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}

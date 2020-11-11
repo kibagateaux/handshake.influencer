@@ -4,10 +4,9 @@ import _ from "lodash";
 
 import Layout from "../components/layout";
 import SEO from "../components/Seo";
-import { Card } from "../components/Card";
+import PageHeader from "../components/PageHeader"
 
-import "../style/normalize.css";
-import "../style/all.scss";
+import { Card } from "../components/Card";
 
 const CategoryTemplate = props => {
   const {
@@ -19,9 +18,7 @@ const CategoryTemplate = props => {
   return (
     <Layout>
       <SEO /> {/* TODO SEOING */}
-      <center>
-        <h1> {_.upperFirst(category)} Influencing Handshake</h1>
-      </center>
+      <PageHeader title={`${_.upperFirst(category)} Influencing Handshake`} />
       <div className="post-feed">
         {posts.map(({ node }, i) => {
           return (

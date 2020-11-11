@@ -6,6 +6,7 @@ export default (props) => {
   const [toggleNav, setToggleNav] = React.useState(false)
   const menuItems = [
     { to: '/products', label: 'Products', icon: ''},
+    { to: '/communities', label: 'Communities', icon: ''},
     { to: '/news', label: 'News', icon: ''},
     { to: '/funds', label: 'Funds', icon: ''},
     // { to: '/search', label: 'search', icon: ''},
@@ -17,7 +18,7 @@ export default (props) => {
   ]
 
   return (
-    <header className={`container site-head ${toggleNav ? 'site-head-open' : ''}`}>
+    <header className={`site-head ${toggleNav ? 'site-head-open' : ''}`}>
       <div id="menu" className="site-head-container">
         <div className="site-head-logos-container">
           <a

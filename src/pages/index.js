@@ -2,11 +2,9 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
+import PageHeader from "../components/PageHeader"
 import SEO from "../components/Seo";
 import { Card } from "../components/Card";
-
-import "../style/normalize.css";
-import "../style/all.scss";
 
 const Home = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
@@ -14,13 +12,8 @@ const Home = ({ data, location }) => {
 
   return (
     <Layout title={siteTitle}>
-      {data.site.siteMetadata.description && (
-        <div className="container page-head">
-          <h1 className="page-head-title">
-            {data.site.siteMetadata.description}
-          </h1>
-        </div>
-      )}
+      {data.site.siteMetadata.description &&
+        <PageHeader title={data.site.siteMetadata.description} />}
       <div className="post-feed">
         {posts.map(({ node }, i) => {
           return (

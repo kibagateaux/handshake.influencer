@@ -2,6 +2,9 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Menu from "./Menu";
 
+import "../style/normalize.css";
+import "../style/all.scss";
+
 const Layout = props => {
   const { children } = props;
   const {

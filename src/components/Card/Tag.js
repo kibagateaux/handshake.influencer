@@ -11,7 +11,7 @@ class Tags extends Component {
             key={tag}
             className="post-card-tag-link"
             style={{ textDecoration: "none" }}
-            to={category}
+            to={'/'+category}
           >
             #{tag}
           </Link>
